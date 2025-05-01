@@ -17,6 +17,8 @@
 	--color-yellow-200: oklch(94.5% 0.129 101.54);
 	--color-yellow-400: oklch(85.2% 0.199 91.936);
 	--color-yellow-600: oklch(68.1% 0.162 75.834);
+	--color-sky-400: oklch(74.6% 0.16 232.661);
+	--color-sky-600: oklch(58.8% 0.158 241.966);
 }
 /* typography */
 @theme {
@@ -41,9 +43,27 @@
 	--text-heading-lg--line-height: calc(1.4 * var(--text-heading-lg));
 }
 
+@layer utilities {
+	.flow > * + * {
+		margin-top: 1em;
+	}
+}
+
 @font-face {
 	font-family: 'Roboto Mono';
 	src: url('/fonts/RobotoMonoVariable.ttf') format('ttf');
 	font-weight: 100 700;
 	font-style: normal;
+}
+
+:is(
+		a[href],
+		button,
+		input,
+		textarea,
+		select,
+		details,
+		[tabindex]:not([tabindex='-1'])
+	):focus-visible {
+	@apply outline-2 outline-offset-2 outline-sky-600 transition-colors duration-100;
 }
