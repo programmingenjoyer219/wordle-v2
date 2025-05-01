@@ -3,6 +3,8 @@
 /* colors */
 @theme {
 	--color-*: initial;
+	--color-white: white;
+	--color-black: black;
 	--color-gray-50: oklch(98.5% 0.002 247.839);
 	--color-gray-200: oklch(92.8% 0.006 264.531);
 	--color-gray-400: oklch(70.7% 0.022 261.325);
@@ -22,21 +24,21 @@
 	--font-roboto-mono: 'Roboto Mono', monospaced;
 	--text-*: initial;
 	--text-sm: 0.875rem; /*14px*/
-	--text-sm--line-height: 1.4em;
+	--text-sm--line-height: calc(1.4 * var(--text-sm));
 	--text-base: 1rem; /*16px*/
-	--text-base--line-height: 1.4em;
+	--text-base--line-height: calc(1.4 * var(--text-base));
 	--text-md: 1.125rem; /*18px*/
-	--text-md--line-height: 1.4em;
+	--text-md--line-height: calc(1.4 * var(--text-md));
 	--text-lg: 1.25rem; /*20px*/
-	--text-lg--line-height: 1.4em;
-	--text-heading-sm: 1.75rem;
-	--text-heading-sm--line-height: 1em;
-	--text-heading-base: 2rem;
-	--text-heading-base--line-height: 1em;
-	--text-heading-md: 2.25rem;
-	--text-heading-md--line-height: 1em;
-	--text-heading-lg: 2.5rem;
-	--text-heading-lg--line-height: 1em;
+	--text-lg--line-height: calc(1.4 * var(--text-lg));
+	--text-heading-sm: 1.75rem; /*28px*/
+	--text-heading-sm--line-height: calc(1.4 * var(--text-heading-sm));
+	--text-heading-base: 2rem; /*32px*/
+	--text-heading-base--line-height: calc(1.4 * var(--text-heading-base));
+	--text-heading-md: 2.25rem; /*36px*/
+	--text-heading-md--line-height: calc(1.4 * var(--text-heading-md));
+	--text-heading-lg: 2.5rem; /*40px*/
+	--text-heading-lg--line-height: calc(1.4 * var(--text-heading-lg));
 }
 
 @font-face {
