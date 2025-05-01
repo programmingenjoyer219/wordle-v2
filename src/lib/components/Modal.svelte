@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { tabTrapping } from '$lib/tabTrapping.svelte';
 	import { fly, fade } from 'svelte/transition';
 
 	var { children, showModal = $bindable(false) } = $props();
@@ -32,6 +33,7 @@
 			id="modal"
 			class="flow w-[100vw] max-w-lg rounded bg-gray-50 px-8 py-4"
 			transition:fly={{ y: -200, duration: 250 }}
+			use:tabTrapping
 		>
 			{@render children()}
 			<div class="flex items-center justify-center">
