@@ -26,21 +26,21 @@
 	<h1 class="text-heading-sm sm:text-heading-base text-center font-semibold">Settings</h1>
 
 	<div class="grid grid-cols-[auto_20%] items-center gap-2">
-		<span class="sm:text-md" id="theme-toggle">Dark Theme</span>
+		<label class="sm:text-md" for="theme-toggle">Dark Theme</label>
 		<input
 			class="size-4 accent-sky-600 dark:accent-sky-400"
 			type="checkbox"
 			name="theme-toggle"
-			aria-labelledby="theme-toggle"
+			id="theme-toggle"
 			bind:checked={darkMode}
 		/>
 
-		<span class="sm:text-md" id="screen-keyboard-input">Onscreen Keyboard Input Only</span>
+		<label class="sm:text-md" for="screen-keyboard-input">Onscreen Keyboard Input Only</label>
 		<input
 			class="size-4 accent-sky-600 dark:accent-sky-400"
 			type="checkbox"
 			name="screen-keyboard-input"
-			aria-labelledby="screen-keyboard-input"
+			id="screen-keyboard-input"
 		/>
 	</div>
 </Modal>
