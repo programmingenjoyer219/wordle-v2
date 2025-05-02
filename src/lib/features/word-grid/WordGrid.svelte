@@ -2,7 +2,7 @@
 	import GridCell from '$lib/components/GridCell.svelte';
 </script>
 
-<section>
+<section class="mb-4">
 	<div data-grid-size="md">
 		{#each { length: 30 }}
 			<GridCell cellSize="md" letterStatus="none">{' '}</GridCell>
@@ -12,35 +12,29 @@
 
 <style>
 	[data-grid-size] {
-		--multiplier: 4;
-		--column-width: calc(var(--spacing) * var(--multiplier));
 		display: grid;
 		gap: calc(var(--spacing) * 1);
-		grid-template-columns: repeat(5, var(--column-width));
 		place-content: center;
 	}
 
 	[data-grid-size='sm'] {
-		--multiplier: 8;
-
-		@media (width >= var(--breakpoint-sm)) {
-			--multiplier: 10;
+		grid-template-columns: repeat(5, 2rem);
+		@media (width >= 40rem) {
+			grid-template-columns: repeat(5, 2.5rem);
 		}
 	}
 
 	[data-grid-size='md'] {
-		--multiplier: 12;
-
-		@media (width >= var(--breakpoint-sm)) {
-			--multiplier: 14;
+		grid-template-columns: repeat(5, 3rem);
+		@media (width >= 40rem) {
+			grid-template-columns: repeat(5, 3.5rem);
 		}
 	}
 
 	[data-grid-size='lg'] {
-		--multiplier: 16;
-
-		@media (width >= var(--breakpoint-sm)) {
-			--multiplier: 18;
+		grid-template-columns: repeat(5, 4rem);
+		@media (width >= 40rem) {
+			grid-template-columns: repeat(5, 4.5rem);
 		}
 	}
 </style>

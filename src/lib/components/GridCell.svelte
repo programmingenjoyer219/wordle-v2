@@ -49,32 +49,33 @@
 		background-color: var(--color-gray-400);
 	}
 
-	[data-cell-size] {
-		height: calc(var(--multiplier) * var(--spacing));
-		width: calc(var(--multiplier) * var(--spacing));
-	}
-
 	[data-cell-size='sm'] {
-		--multiplier: 8;
+		height: 2rem;
+		width: 2rem;
 
-		@media (width >= var(--breakpoint-sm)) {
-			--multiplier: 10;
+		@media (width >= 40rem) {
+			height: 2.5rem;
+			width: 2.5rem;
 		}
 	}
 
 	[data-cell-size='md'] {
-		--multiplier: 12;
+		height: 3rem;
+		width: 3rem;
 
-		@media (width >= var(--breakpoint-sm)) {
-			--multiplier: 14;
+		@media (width >= 40rem) {
+			height: 3.5rem;
+			width: 3.5rem;
 		}
 	}
 
 	[data-cell-size='lg'] {
-		--multiplier: 16;
+		height: 4rem;
+		width: 4rem;
 
-		@media (width >= var(--breakpoint-sm)) {
-			--multiplier: 18;
+		@media (width >= 40rem) {
+			height: 4.5rem;
+			width: 4.5rem;
 		}
 	}
 </style>
