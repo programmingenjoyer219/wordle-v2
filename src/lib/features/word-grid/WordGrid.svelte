@@ -1,40 +1,20 @@
-<script>
+<script lang="ts">
 	import GridCell from '$lib/components/GridCell.svelte';
+
+	const GRID_SIZE: 'sm' | 'md' | 'lg' = 'md';
 </script>
 
 <section class="mb-4">
-	<div data-grid-size="md">
+	<div
+		class={[
+			'grid place-content-center gap-1',
+			GRID_SIZE == 'sm' && 'grid-cols-[repeat(5,_2rem)] sm:grid-cols-[repeat(5,_2.5rem)]',
+			GRID_SIZE == 'md' && 'grid-cols-[repeat(5,_3rem)] sm:grid-cols-[repeat(5,_3.5rem)]',
+			GRID_SIZE == 'lg' && 'grid-cols-[repeat(5,_4rem)] sm:grid-cols-[repeat(5,_4.5rem)]'
+		]}
+	>
 		{#each { length: 30 }}
-			<GridCell cellSize="md" letterStatus="none">{' '}</GridCell>
+			<GridCell cellSize={GRID_SIZE} letterStatus="none">{' '}</GridCell>
 		{/each}
 	</div>
 </section>
-
-<style>
-	[data-grid-size] {
-		display: grid;
-		gap: calc(var(--spacing) * 1);
-		place-content: center;
-	}
-
-	[data-grid-size='sm'] {
-		grid-template-columns: repeat(5, 2rem);
-		@media (width >= 40rem) {
-			grid-template-columns: repeat(5, 2.5rem);
-		}
-	}
-
-	[data-grid-size='md'] {
-		grid-template-columns: repeat(5, 3rem);
-		@media (width >= 40rem) {
-			grid-template-columns: repeat(5, 3.5rem);
-		}
-	}
-
-	[data-grid-size='lg'] {
-		grid-template-columns: repeat(5, 4rem);
-		@media (width >= 40rem) {
-			grid-template-columns: repeat(5, 4.5rem);
-		}
-	}
-</style>
