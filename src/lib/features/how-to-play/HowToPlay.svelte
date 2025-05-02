@@ -42,7 +42,7 @@
 	<div>
 		<div class="flex items-center gap-1">
 			{#each exampleWord.split('') as letter, i (i)}
-				<GridCell letterStatus={focusLetter == letter ? focusLetterStatus : 'none'}
+				<GridCell cellSize="sm" letterStatus={focusLetter == letter ? focusLetterStatus : 'none'}
 					>{letter}</GridCell
 				>
 			{/each}
