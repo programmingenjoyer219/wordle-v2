@@ -6,9 +6,13 @@
 	let { children } = $props();
 </script>
 
-<div class="space-y-2">
-	<Header />
-	<main class="mx-auto max-w-2xl outline-2 outline-green-200">
-		{@render children()}
-	</main>
-</div>
+<Header />
+<main class="mx-auto flex max-w-2xl flex-col items-center justify-center">
+	{@render children()}
+</main>
+
+<style>
+	main {
+		min-height: calc(100dvh - 4rem);
+	}
+</style>
