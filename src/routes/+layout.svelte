@@ -6,7 +6,9 @@
 	let { children } = $props();
 </script>
 
-<Header />
-<main>
-	{@render children()}
-</main>
+<div class="space-y-2">
+	<Header />
+	<main class="mx-auto max-w-2xl outline-2 outline-green-200">
+		{@render children()}
+	</main>
+</div>

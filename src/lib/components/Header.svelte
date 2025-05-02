@@ -4,7 +4,7 @@
 </script>
 
 <header class="border-b-2 border-gray-200/75">
-	<div class="flex max-w-4xl items-center justify-end gap-2">
+	<div class="mx-auto flex max-w-2xl items-center justify-end gap-2">
 		<HowToPlay />
 		<AppSettings />
 	</div>

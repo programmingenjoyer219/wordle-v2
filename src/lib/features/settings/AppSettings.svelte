@@ -10,7 +10,7 @@
 
 <button
 	title="settings"
-	class="rounded px-4 py-2 transition-colors duration-200 hover:bg-gray-200 active:bg-gray-200/75"
+	class="rounded px-3 py-1 transition-colors duration-200 hover:bg-gray-200 active:bg-gray-200/75"
 	onclick={openModal}
 >
 	<span class="sr-only">settings</span>
