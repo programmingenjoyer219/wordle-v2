@@ -7,7 +7,7 @@
 </script>
 
 <Header />
-<main class="mx-auto flex max-w-2xl flex-col items-center justify-center">
+<main class="mx-auto my-2 flex max-w-2xl flex-col items-center justify-center">
 	{@render children()}
 </main>
 

@@ -3,7 +3,7 @@
 	import AppSettings from '$lib/features/settings/AppSettings.svelte';
 </script>
 
-<header class="border-b-2 border-gray-200/75">
+<header class="border-b-2 border-gray-200/75 dark:border-gray-600/75">
 	<div class="mx-auto flex max-w-2xl items-center justify-end gap-2">
 		<HowToPlay />
 		<AppSettings />

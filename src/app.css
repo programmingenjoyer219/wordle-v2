@@ -65,5 +65,9 @@
 		details,
 		[tabindex]:not([tabindex='-1'])
 	):focus-visible {
-	@apply outline-2 outline-offset-2 outline-sky-600 transition-colors duration-100;
+	@apply outline-2 outline-offset-2 outline-sky-600 transition-colors duration-100 dark:outline-sky-400;
 }
+
+/* toggle dark mode using data-theme='dark' */
+/* https://tailwindcss.com/docs/dark-mode#using-a-data-attribute */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

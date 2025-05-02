@@ -56,7 +56,7 @@
 
 <button
 	title="how to play?"
-	class="rounded px-3 py-1 transition-colors duration-200 hover:bg-gray-200 active:bg-gray-200/75"
+	class="rounded px-3 py-1 transition-colors duration-200 hover:bg-gray-200 active:bg-gray-200/75 dark:hover:bg-gray-600/75 dark:active:bg-gray-600/50"
 	onclick={openModal}
 >
 	<span class="sr-only">how to play?</span>

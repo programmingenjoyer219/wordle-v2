@@ -14,7 +14,7 @@
 		]}
 	>
 		{#each { length: 30 }}
-			<GridCell cellSize={GRID_SIZE} letterStatus="none">{' '}</GridCell>
+			<GridCell cellSize={GRID_SIZE} letterStatus="none">{'A'}</GridCell>
 		{/each}
 	</div>
 </section>

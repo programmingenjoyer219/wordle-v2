@@ -31,7 +31,7 @@
 	>
 		<section
 			id="modal"
-			class="flow w-[100vw] max-w-lg rounded bg-gray-50 px-8 py-4"
+			class="flow w-[100vw] max-w-lg rounded bg-gray-50 px-8 py-4 dark:bg-gray-800"
 			transition:fly={{ y: -200, duration: 250 }}
 			use:tabTrapping
 		>
@@ -40,7 +40,7 @@
 				<button
 					id="close-modal"
 					onclick={closeModal}
-					class="rounded border-2 border-black/80 bg-black/80 px-3 py-2 text-sm text-gray-50 transition-all duration-200 hover:bg-gray-50 hover:text-black/80 sm:text-base"
+					class="rounded border-2 border-black/80 bg-black/80 px-3 py-2 text-sm text-gray-50 transition-all duration-200 hover:bg-gray-50 hover:text-black/80 sm:text-base dark:border-gray-50 dark:bg-gray-50 dark:text-black/80 dark:hover:bg-black/80 dark:hover:text-gray-50"
 					>Close</button
 				>
 			</div>
