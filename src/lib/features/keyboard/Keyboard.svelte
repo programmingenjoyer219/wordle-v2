@@ -11,13 +11,13 @@
 <section class="mb-2">
 	<div class="grid grid-rows-3 gap-2">
 		{#each KEYBOARD_LAYOUT as keyboardRow, rowIdx (rowIdx)}
-			<div class="flex justify-center gap-1 sm:gap-2">
+			<div class="flex justify-center gap-1 min-[440px]:gap-2">
 				{#each keyboardRow as keyName, keyIdx (keyIdx)}
 					<Key letterStatus="none">{keyName}</Key>
 				{/each}
 			</div>
 		{/each}
-		<div class="flex justify-center gap-1 sm:gap-2">
+		<div class="flex justify-center gap-1 min-[440px]:gap-2">
 			<Key letterStatus="none">Backspace</Key>
 			<Key letterStatus="none">Enter</Key>
 		</div>
