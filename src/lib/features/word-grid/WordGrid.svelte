@@ -1,20 +1,17 @@
 <script lang="ts">
 	import GridCell from '$lib/components/GridCell.svelte';
+	import { gridCellDimensions } from '$lib/utils';
 
-	const GRID_SIZE: 'sm' | 'md' | 'lg' = 'md';
+	const gridSize: 'sm' | 'md' | 'lg' = 'md';
+	const currentGridCellDimensions = gridCellDimensions[gridSize];
 </script>
 
 <section class="mb-2">
 	<div
-		class={[
-			'grid place-content-center gap-1',
-			GRID_SIZE == 'sm' && 'grid-cols-[repeat(5,_2rem)] sm:grid-cols-[repeat(5,_2.5rem)]',
-			GRID_SIZE == 'md' && 'grid-cols-[repeat(5,_3rem)] sm:grid-cols-[repeat(5,_3.5rem)]',
-			GRID_SIZE == 'lg' && 'grid-cols-[repeat(5,_4rem)] sm:grid-cols-[repeat(5,_4.5rem)]'
-		]}
+		class="grid grid-cols-[repeat(5,_{currentGridCellDimensions[0]})] place-content-center gap-1 sm:grid-cols-[repeat(5,_{currentGridCellDimensions[1]})]"
 	>
 		{#each { length: 30 }}
-			<GridCell cellSize={GRID_SIZE} letterStatus="none">{'A'}</GridCell>
+			<GridCell cellSize={gridSize} letterStatus="none">{'A'}</GridCell>
 		{/each}
 	</div>
 </section>
