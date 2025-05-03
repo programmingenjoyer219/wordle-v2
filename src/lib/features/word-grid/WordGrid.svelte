@@ -11,26 +11,3 @@
 		{/each}
 	</div>
 </section>
-
-<style>
-	[data-col-width='sm'] {
-		grid-template-columns: repeat(5, 2rem);
-		@media (width >= 40rem) {
-			grid-template-columns: repeat(5, 2.5rem);
-		}
-	}
-
-	[data-col-width='md'] {
-		grid-template-columns: repeat(5, 3.25rem);
-		@media (width >= 40rem) {
-			grid-template-columns: repeat(5, 3.75rem);
-		}
-	}
-
-	[data-col-width='lg'] {
-		grid-template-columns: repeat(5, 4rem);
-		@media (width >= 40rem) {
-			grid-template-columns: repeat(5, 4.5rem);
-		}
-	}
-</style>

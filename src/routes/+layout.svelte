@@ -12,21 +12,3 @@
 		{@render children()}
 	</main>
 </div>
-
-<style>
-	@media (width <= 40rem) {
-		@media (height >= 625px) {
-			main {
-				height: calc(100dvh - 4.5rem);
-			}
-		}
-	}
-
-	@media (width >= 40rem) {
-		@media (height >= 705px) {
-			main {
-				height: calc(100dvh - 4.5rem);
-			}
-		}
-	}
-</style>
