@@ -4,7 +4,7 @@
 	const GRID_SIZE: 'sm' | 'md' | 'lg' = 'md';
 </script>
 
-<section class="mb-4">
+<section class="mb-2">
 	<div
 		class={[
 			'grid place-content-center gap-1',

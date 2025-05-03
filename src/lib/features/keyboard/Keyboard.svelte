@@ -8,7 +8,7 @@
 	];
 </script>
 
-<section>
+<section class="mb-2">
 	<div class="grid grid-rows-3 gap-2">
 		{#each KEYBOARD_LAYOUT as keyboardRow, rowIdx (rowIdx)}
 			<div class="flex justify-center gap-1 sm:gap-2">

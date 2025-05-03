@@ -6,13 +6,27 @@
 	let { children } = $props();
 </script>
 
-<Header />
-<main class="mx-auto my-2 flex max-w-2xl flex-col items-center justify-center">
-	{@render children()}
-</main>
+<div class="container mx-auto min-h-dvh max-w-2xl">
+	<Header />
+	<main class="mb-2 flex flex-col justify-evenly">
+		{@render children()}
+	</main>
+</div>
 
 <style>
-	main {
-		min-height: calc(100dvh - 4rem);
+	@media (width <= 40rem) {
+		@media (height >= 625px) {
+			main {
+				height: calc(100dvh - 4.5rem);
+			}
+		}
+	}
+
+	@media (width >= 40rem) {
+		@media (height >= 705px) {
+			main {
+				height: calc(100dvh - 4.5rem);
+			}
+		}
 	}
 </style>
