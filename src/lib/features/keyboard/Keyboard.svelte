@@ -9,8 +9,53 @@
 		['Z', 'X', 'C', 'V', 'B', 'N', 'M']
 	];
 
+	const allowedKeys = new Set([
+		'q',
+		'w',
+		'e',
+		'r',
+		't',
+		'y',
+		'u',
+		'i',
+		'o',
+		'p',
+		'a',
+		's',
+		'd',
+		'f',
+		'g',
+		'h',
+		'j',
+		'k',
+		'l',
+		'z',
+		'x',
+		'c',
+		'v',
+		'b',
+		'n',
+		'm',
+		'Enter',
+		'Backspace'
+	]);
+
 	$inspect(userInput.value);
+
+	function handleKeyDown(evt: KeyboardEvent) {
+		var isAllowed = allowedKeys.has(evt.key);
+		if (isAllowed) {
+			if (evt.key == 'Enter') {
+			} else if (evt.key == 'Backspace') {
+				handleBackspaceClick(userInput)();
+			} else {
+				createClickHandler(evt.key.toUpperCase())(userInput)();
+			}
+		}
+	}
 </script>
+
+<svelte:window onkeydown={handleKeyDown} />
 
 <section class="mb-2">
 	<div class="grid grid-rows-3 gap-2">
