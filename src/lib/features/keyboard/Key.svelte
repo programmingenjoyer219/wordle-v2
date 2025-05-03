@@ -25,7 +25,7 @@
 >
 	<span
 		class={[
-			'font-bold sm:text-lg',
+			'text-md font-bold sm:text-lg',
 			letterStatus != 'none' && 'text-white text-shadow-black/50 text-shadow-md'
 		]}
 	>
