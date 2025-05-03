@@ -5,12 +5,14 @@
 	type Props = {
 		children: Snippet;
 		letterStatus: LetterStatus;
+		onclick: () => void;
 	};
 
-	var { children, letterStatus }: Props = $props();
+	var { children, letterStatus, onclick }: Props = $props();
 </script>
 
 <button
+	{onclick}
 	data-key-status={letterStatus}
 	class="rounded-sm p-[0.5em] shadow shadow-black/75 transition-all active:translate-y-1 min-[375px]:p-[0.65em] min-[425px]:p-[0.8em] sm:p-[1em]"
 >
