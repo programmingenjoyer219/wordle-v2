@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { currentGridRowNum, getCurrentGridRowIdx, userInput, words } from '$lib/game.svelte';
-	import { updateWord } from '$lib/utils';
 	import Key from './Key.svelte';
+	import { currentGridRowNum, getCurrentGridRowIdx, userInput, words } from '$lib/game.svelte';
+	import { updateWord } from './utils';
 	import { createClickHandler, handleBackspaceClick, handleEnterClick } from './utils';
 
 	const keyboardLayout = [
