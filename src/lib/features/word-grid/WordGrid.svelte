@@ -8,7 +8,7 @@
 
 <section class="mb-2">
 	<div data-col-width={gridColWidth} class="grid place-content-center gap-1">
-		{#each words as word, wordIdx (wordIdx)}
+		{#each words.value as word, wordIdx (wordIdx)}
 			{@const wordToRender = generateWordToRender(word)}
 			{@const showStatus = wordIdx < getCurrentGridRowIdx() || isLevelComplete.value}
 			{#if showStatus}

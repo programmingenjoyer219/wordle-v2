@@ -11,18 +11,6 @@
 	} from '$lib/game.svelte';
 	import { allowedKeys, keyboardLayout } from './utils';
 
-	$inspect({
-		gameState: {
-			currentGridRowNum,
-			currentGridRowIdx: getCurrentGridRowIdx(),
-			isGuessCorrect: isGuessCorrect(),
-			isLevelComplete,
-			ranOutOfTries: ranOutOfTries(),
-			userInput,
-			words
-		}
-	});
-
 	function onBackspaceClick() {
 		if (!isLevelComplete.value) {
 			if (userInput.value.length <= 1) {
@@ -30,7 +18,7 @@
 			} else {
 				userInput.value = userInput.value.slice(0, userInput.value.length - 1);
 			}
-			words[getCurrentGridRowIdx()] = userInput.value;
+			words.value[getCurrentGridRowIdx()] = userInput.value;
 		}
 	}
 
@@ -39,15 +27,13 @@
 			if (userInput.value.length < 5) {
 				userInput.value += keyName.toUpperCase();
 			}
-			words[getCurrentGridRowIdx()] = userInput.value;
+			words.value[getCurrentGridRowIdx()] = userInput.value;
 		}
 	}
 
 	function onEnterClick() {
 		if (!isLevelComplete.value) {
-			if (isGuessCorrect()) {
-				isLevelComplete.value = true;
-			} else if (ranOutOfTries()) {
+			if (isGuessCorrect() || ranOutOfTries()) {
 				isLevelComplete.value = true;
 			} else {
 				currentGridRowNum.value += 1;

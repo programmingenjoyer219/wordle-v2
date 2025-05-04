@@ -2,10 +2,10 @@
 	import { tabTrapping } from '$lib/tabTrapping.svelte';
 	import { fly, fade } from 'svelte/transition';
 
-	var { children, showModal = $bindable(false) } = $props();
+	var { children, showModal = $bindable(false), canBeClosed = $bindable(true) } = $props();
 
 	function closeModal() {
-		showModal = false;
+		if (canBeClosed) showModal = false;
 	}
 
 	function closeModalOnEscape(evt: KeyboardEvent) {
@@ -36,14 +36,16 @@
 			use:tabTrapping
 		>
 			{@render children()}
-			<div class="flex items-center justify-center">
-				<button
-					id="close-modal"
-					onclick={closeModal}
-					class="rounded border-2 border-black/80 bg-black/80 px-3 py-2 text-sm text-gray-50 transition-all duration-200 hover:bg-gray-50 hover:text-black/80 sm:text-base dark:border-gray-50 dark:bg-gray-50 dark:text-black/80 dark:hover:bg-black/80 dark:hover:text-gray-50"
-					>Close</button
-				>
-			</div>
+			{#if canBeClosed}
+				<div class="flex items-center justify-center">
+					<button
+						id="close-modal"
+						onclick={closeModal}
+						class="rounded border-2 border-black/80 bg-black/80 px-3 py-2 text-sm text-gray-50 transition-all duration-200 hover:bg-gray-50 hover:text-black/80 sm:text-base dark:border-gray-50 dark:bg-gray-50 dark:text-black/80 dark:hover:bg-black/80 dark:hover:text-gray-50"
+						>Close</button
+					>
+				</div>
+			{/if}
 		</section>
 	</div>
 {/key}
