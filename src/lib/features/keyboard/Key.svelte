@@ -5,7 +5,7 @@
 	type Props = {
 		children: Snippet;
 		letterStatus: LetterStatus;
-		onclick: () => void;
+		onclick: (...args: any[]) => void;
 	};
 
 	var { children, letterStatus, onclick }: Props = $props();

@@ -1,4 +1,4 @@
-import { createClickHandler, handleBackspaceClick } from './utils';
+import { createClickHandler, handleBackspaceClick, handleEnterClick } from './utils';
 
 describe('createClickHandler', () => {
 	it('should not append keyName to userInput.value if userInput.value is longer than 4 characters', () => {
@@ -49,5 +49,43 @@ describe('handleBackspaceClick', () => {
 			handleBackspaceClick(testUserInput)();
 			expect(testUserInput.value).toBe('');
 		}
+	});
+});
+
+describe('handleEnterClick', () => {
+	it('should not increment the gridRowNumber.value if it is equal to 6', () => {
+		var testRowNumber = { value: 6 };
+		var testUserInput = { value: 'apple' };
+		handleEnterClick(testRowNumber)(testUserInput)();
+		expect(testRowNumber.value).toBe(6);
+	});
+
+	it('should not increment the gridRowNumber.value if userInput.value.length is less than 5', () => {
+		var testRowNumber = { value: 4 };
+		var testUserInput = { value: 'app' };
+		handleEnterClick(testRowNumber)(testUserInput)();
+		expect(testRowNumber.value).toBe(4);
+	});
+
+	it('should not reset the userInput.value if its not 5 characters long', () => {
+		var testRowNumber = { value: 4 };
+		var testUserInput = { value: 'app' };
+		handleEnterClick(testRowNumber)(testUserInput)();
+		expect(testUserInput.value).toBe('app');
+	});
+
+	it('should increment the gridRowNumber.value', () => {
+		var testRowNumber = { value: 3 };
+		var testUserInput = { value: 'apple' };
+		handleEnterClick(testRowNumber)(testUserInput)();
+		expect(testRowNumber.value).toBe(4);
+	});
+
+	it('should reset the userInput.value when gridRowNumber.value is incremented', () => {
+		var testRowNumber = { value: 3 };
+		var testUserInput = { value: 'apple' };
+		handleEnterClick(testRowNumber)(testUserInput)();
+		expect(testRowNumber.value).toBe(4);
+		expect(testUserInput.value).toBe('');
 	});
 });
