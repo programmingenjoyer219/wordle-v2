@@ -7,14 +7,36 @@ export function generateWordToRender(word: string) {
 	return word;
 }
 
-export function evaluateLetterStatus(
-	char: string,
-	charPosn: number,
-	solution: string
-): 'correct' | 'present' | 'absent' {
-	if (solution.includes(char)) {
-		return solution[charPosn] == char ? 'correct' : 'present';
-	} else {
-		return 'absent';
+export function evaluateWordStatus(
+	inputWord: string,
+	solutionWord: string
+): ('correct' | 'present' | 'absent')[] {
+	const result = Array(inputWord.length).fill('absent');
+	const solutionArr = solutionWord.split('');
+	const inputArr = inputWord.split('');
+	const usedIndices = new Set();
+
+	// First pass: check for correct letters in correct positions
+	for (let i = 0; i < inputArr.length; i++) {
+		if (inputArr[i] === solutionArr[i]) {
+			result[i] = 'correct';
+			usedIndices.add(i);
+			inputArr[i] = null; // Mark as matched
+		}
 	}
+
+	// Second pass: check for correct letters in wrong positions
+	for (let i = 0; i < inputArr.length; i++) {
+		if (result[i] !== 'correct' && inputArr[i] !== null) {
+			for (let j = 0; j < solutionArr.length; j++) {
+				if (!usedIndices.has(j) && inputArr[i] === solutionArr[j]) {
+					result[i] = 'present';
+					usedIndices.add(j);
+					break;
+				}
+			}
+		}
+	}
+
+	return result;
 }
