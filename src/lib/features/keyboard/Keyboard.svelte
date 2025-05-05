@@ -10,6 +10,8 @@
 		words
 	} from '$lib/game.svelte';
 	import { allowedKeys, keyboardLayout } from './utils';
+	import { isWordValid } from '$lib/words';
+	import toast from 'svelte-french-toast';
 
 	function onBackspaceClick() {
 		if (!isLevelComplete.value) {
@@ -33,7 +35,11 @@
 
 	function onEnterClick() {
 		if (!isLevelComplete.value) {
-			if (isGuessCorrect() || ranOutOfTries()) {
+			if (userInput.value.length < 5) {
+				toast.error('Please provide a 5 letter word');
+			} else if (!isWordValid(userInput.value)) {
+				toast.error(`${userInput.value} is not a valid word`);
+			} else if (isGuessCorrect() || ranOutOfTries()) {
 				isLevelComplete.value = true;
 			} else {
 				currentGridRowNum.value += 1;
