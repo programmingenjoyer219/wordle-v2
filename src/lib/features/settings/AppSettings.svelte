@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Modal from '$lib/components/Modal.svelte';
+	import { onscreenKbdOnly } from './settings.svelte';
 
 	var darkMode = $state(false);
 	var showModal = $state(false);
@@ -41,6 +42,7 @@
 			type="checkbox"
 			name="screen-keyboard-input"
 			id="screen-keyboard-input"
+			bind:checked={onscreenKbdOnly.value}
 		/>
 	</div>
 </Modal>

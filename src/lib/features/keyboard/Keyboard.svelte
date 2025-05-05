@@ -13,6 +13,7 @@
 	import { isWordValid } from '$lib/words';
 	import toast from 'svelte-french-toast';
 	import { keyboardLetterStatus } from './keyboard.svelte';
+	import { onscreenKbdOnly } from '../settings/settings.svelte';
 
 	function onBackspaceClick() {
 		if (!isLevelComplete.value) {
@@ -50,6 +51,7 @@
 	}
 
 	function handleKeyDown(evt: KeyboardEvent) {
+		if (onscreenKbdOnly.value) return;
 		var isAllowed = allowedKeys.has(evt.key);
 		if (isAllowed) {
 			if (evt.key == 'Enter') {
