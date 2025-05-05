@@ -12,6 +12,7 @@
 	import { allowedKeys, keyboardLayout } from './utils';
 	import { isWordValid } from '$lib/words';
 	import toast from 'svelte-french-toast';
+	import { keyboardLetterStatus } from './keyboard.svelte';
 
 	function onBackspaceClick() {
 		if (!isLevelComplete.value) {
@@ -73,8 +74,10 @@
 						onclick={function handleKeyClick() {
 							onKeyClick(keyName);
 						}}
-						letterStatus="none">{keyName}</Key
+						letterStatus={keyboardLetterStatus.value[keyName]}
 					>
+						{keyName}
+					</Key>
 				{/each}
 			</div>
 		{/each}

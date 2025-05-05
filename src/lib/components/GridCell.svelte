@@ -1,14 +1,22 @@
 <script lang="ts">
+	import { keyboardLetterStatus } from '$lib/features/keyboard/keyboard.svelte';
 	import type { LetterStatus } from '$lib/types';
-	import type { Snippet } from 'svelte';
+	import { onMount, type Snippet } from 'svelte';
 
 	type Props = {
 		children: Snippet;
 		letterStatus: LetterStatus;
 		cellSize: 'sm' | 'md' | 'lg';
+		letterName: string;
 	};
 
-	var { children, letterStatus, cellSize = 'sm' }: Props = $props();
+	var { children, letterStatus, cellSize = 'sm', letterName = ' ' }: Props = $props();
+
+	onMount(function updateKeyboardLetterStatus() {
+		if (letterName in keyboardLetterStatus.value) {
+			keyboardLetterStatus.value[letterName] = letterStatus;
+		}
+	});
 </script>
 
 <div

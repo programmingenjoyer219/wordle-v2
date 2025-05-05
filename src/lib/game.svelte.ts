@@ -1,3 +1,4 @@
+import { resetKeyboard } from './features/keyboard/keyboard.svelte';
 import { getRandomWord } from './words';
 
 export var solutionWord = $state({ value: getRandomWord().toUpperCase() });
@@ -32,4 +33,5 @@ export function resetGameState() {
 	words.value = ['', '', '', '', '', ''];
 	currentGridRowNum.value = 1;
 	isLevelComplete.value = false;
+	resetKeyboard();
 }

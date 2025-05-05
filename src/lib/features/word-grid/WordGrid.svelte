@@ -15,11 +15,11 @@
 				{@const wordStatus = evaluateWordStatus(wordToRender, solutionWord.value)}
 				{#each wordToRender.split('') as char, charIdx (charIdx)}
 					{@const letterStatus = char == ' ' ? 'none' : wordStatus[charIdx]}
-					<GridCell cellSize={gridColWidth} {letterStatus}>{char}</GridCell>
+					<GridCell cellSize={gridColWidth} {letterStatus} letterName={char}>{char}</GridCell>
 				{/each}
 			{:else}
 				{#each wordToRender.split('') as char}
-					<GridCell cellSize={gridColWidth} letterStatus="none">{char}</GridCell>
+					<GridCell cellSize={gridColWidth} letterStatus="none" letterName={char}>{char}</GridCell>
 				{/each}
 			{/if}
 		{/each}
