@@ -1,4 +1,6 @@
-export var solutionWord = $state({ value: 'APPLE' });
+import { getRandomWord } from './words';
+
+export var solutionWord = $state({ value: getRandomWord().toUpperCase() });
 export var userInput = $state({ value: '' });
 export var words = $state({ value: ['', '', '', '', '', ''] });
 export var currentGridRowNum = $state({ value: 1 });
@@ -25,7 +27,7 @@ export function hasPlayerWon(): boolean {
 }
 
 export function resetGameState() {
-	solutionWord.value = 'MANGO';
+	solutionWord.value = getRandomWord().toUpperCase();
 	userInput.value = '';
 	words.value = ['', '', '', '', '', ''];
 	currentGridRowNum.value = 1;

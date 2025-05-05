@@ -12984,3 +12984,8 @@ export const allowedWords = new Set([
 export function isWordValid(value: string): boolean {
 	return allowedWords.has(value.toLowerCase());
 }
+
+export function getRandomWord(): string {
+	var randomIdx = Math.floor(Math.random() * words.length);
+	return words[randomIdx];
+}
