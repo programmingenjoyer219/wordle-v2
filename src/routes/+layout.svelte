@@ -8,6 +8,11 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<title>Wordle Infinite</title>
+	<meta name="description" content="Play the popular word guessing game as long as you want!" />
+</svelte:head>
+
 <div class="container mx-auto min-h-dvh max-w-2xl">
 	<Header />
 	<Toaster />
