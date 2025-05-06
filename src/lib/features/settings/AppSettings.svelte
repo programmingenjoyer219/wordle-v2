@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Modal from '$lib/components/Modal.svelte';
-	import { onscreenKbdOnly } from './settings.svelte';
+	import { darkMode, onscreenKbdOnly } from './settings.svelte';
 
-	var darkMode = $state(false);
 	var showModal = $state(false);
 
 	function openModal() {
@@ -10,7 +9,7 @@
 	}
 
 	$effect(function updateHtmlElDataTheme() {
-		document.querySelector('html')!.dataset.theme = darkMode ? 'dark' : 'light';
+		document.querySelector('html')!.dataset.theme = darkMode.value ? 'dark' : 'light';
 	});
 </script>
 
@@ -33,7 +32,7 @@
 			type="checkbox"
 			name="theme-toggle"
 			id="theme-toggle"
-			bind:checked={darkMode}
+			bind:checked={darkMode.value}
 		/>
 
 		<label class="sm:text-md" for="screen-keyboard-input">Onscreen Keyboard Input Only</label>

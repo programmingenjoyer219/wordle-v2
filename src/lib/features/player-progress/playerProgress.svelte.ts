@@ -17,3 +17,15 @@ export function goToNextLevel(): void {
 export function incrementGamePoints(points: number) {
 	gamePoints.value += points;
 }
+
+export function getProgressSnapshot() {
+	return {
+		gameLevel: gameLevel.value,
+		gamePoints: gamePoints.value
+	};
+}
+
+export function setProgressSnapshot(snapshot: { gameLevel: number; gamePoints: number }) {
+	gameLevel.value = snapshot.gameLevel;
+	gamePoints.value = snapshot.gamePoints;
+}

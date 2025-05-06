@@ -35,3 +35,27 @@ export function resetGameState() {
 	isLevelComplete.value = false;
 	resetKeyboard();
 }
+
+export function getGameSnapshot() {
+	return {
+		solutionWord: solutionWord.value,
+		userInput: userInput.value,
+		words: $state.snapshot(words.value),
+		currentGridRowNum: currentGridRowNum.value,
+		isLevelComplete: isLevelComplete.value
+	};
+}
+
+export function setGameSnapshot(snapshot: {
+	solutionWord: string;
+	userInput: string;
+	words: string[];
+	currentGridRowNum: number;
+	isLevelComplete: boolean;
+}) {
+	solutionWord.value = snapshot.solutionWord;
+	userInput.value = snapshot.userInput;
+	words.value = snapshot.words;
+	currentGridRowNum.value = snapshot.currentGridRowNum;
+	isLevelComplete.value = snapshot.isLevelComplete;
+}

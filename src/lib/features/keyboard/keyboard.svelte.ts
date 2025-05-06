@@ -36,3 +36,17 @@ export var keyboardLetterStatus = $state({
 export function resetKeyboard() {
 	keyboardLetterStatus.value = { ...keyStatusMap };
 }
+
+export function getKbdSnapshot() {
+	return {
+		keyboardLetterStatus: $state.snapshot(keyboardLetterStatus.value)
+	};
+}
+
+export function setKbdSnapshot(snapshot: {
+	keyboardLetterStatus: {
+		[x: string]: LetterStatus;
+	};
+}) {
+	keyboardLetterStatus.value = snapshot.keyboardLetterStatus;
+}
