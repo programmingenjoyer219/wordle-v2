@@ -11,6 +11,7 @@
 <svelte:head>
 	<title>Wordle Infinite</title>
 	<meta name="description" content="Play the popular word guessing game as long as you want!" />
+	<link rel="manifest" href="/app.webmanifest" />
 </svelte:head>
 
 <div class="container mx-auto min-h-dvh max-w-2xl">

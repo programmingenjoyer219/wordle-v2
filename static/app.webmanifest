@@ -1,0 +1,73 @@
+{
+	"id": "/",
+	"start_url": "/",
+	"scope": "/",
+	"name": "Wordle Infinite | Play Wordle as much as you want!",
+	"short_name": "Wordle Infinite",
+	"display": "standalone",
+	"background_color": "#7FB285",
+	"theme_color": "#7FB285",
+	"description": "Guess a 5 letter word in 6 tries",
+	"icons": [
+		{
+			"src": "/icons/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/icons/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/icons/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/icons/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/screenshots/desktop-1.png",
+			"sizes": "1545x1159",
+			"type": "image/png",
+			"form_factor": "wide"
+		},
+		{
+			"src": "/screenshots/desktop-2.png",
+			"sizes": "1545x1159",
+			"type": "image/png",
+			"form_factor": "wide"
+		},
+		{
+			"src": "/screenshots/desktop-3.png",
+			"sizes": "1545x1159",
+			"type": "image/png",
+			"form_factor": "wide"
+		},
+		{
+			"src": "/screenshots/mobile-1.png",
+			"sizes": "667x1186",
+			"type": "image/png",
+			"form_factor": "narrow"
+		},
+		{
+			"src": "/screenshots/mobile-2.png",
+			"sizes": "667x1186",
+			"type": "image/png",
+			"form_factor": "narrow"
+		},
+		{
+			"src": "/screenshots/mobile-3.png",
+			"sizes": "667x1186",
+			"type": "image/png",
+			"form_factor": "narrow"
+		}
+	]
+}
