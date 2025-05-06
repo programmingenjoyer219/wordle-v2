@@ -1,38 +1,60 @@
-# sv
+<img 
+    src="./static/favicon.png"
+    alt=""
+    height="100"
+/>
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+<h1>Wordle Infinite v2</h1>
 
-## Creating a project
+<p>A wordle clone with no time restrictions and progressively enhanced for offline functionality</p>
 
-If you're seeing this, you've probably already done this step. Congrats!
+<h2>Built using :</h2>
 
-```bash
-# create a new project in the current directory
-npx sv create
+<ul>
+    <li>SvelteKit</li>
+    <li>TailwindCSS</li>
+    <li>TypeScript</li>
+    <li>
+        <a href="https://remixicon.com/">Remix icon</a>
+    </li>
+    <li>
+        <a href="https://localforage.github.io/localForage/">Localforage</a>
+    </li>
+    <li>
+        <a href="https://svelte-french-toast.com/">Svelte french toast</a>
+    </li>
+</ul>
 
-# create a new project in my-app
-npx sv create my-app
-```
+<h2>Screenshots :</h2>
 
-## Developing
+<img
+    src="./static/screenshots/desktop-1.png"
+    alt=""
+    height="300"
+/>
+<img
+    src="./static/screenshots/desktop-2.png"
+    alt=""
+    height="300"
+/>
+<img
+    src="./static/screenshots/desktop-3.png"
+    alt=""
+    height="300"
+/>
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+<img
+    src="./static/screenshots/mobile-1.png"
+    alt=""
+    height="400"
+/>
+<img
+    src="./static/screenshots/mobile-2.png"
+    alt=""
+    height="400"
+/>
+<img
+    src="./static/screenshots/mobile-3.png"
+    alt=""
+    height="400"
+/>
