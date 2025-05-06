@@ -1,9 +1,21 @@
 <script lang="ts">
 	import Modal from '$lib/components/Modal.svelte';
-	import { hasPlayerWon, isLevelComplete, resetGameState, solutionWord } from '$lib/game.svelte';
+	import {
+		currentGridRowNum,
+		hasPlayerWon,
+		isLevelComplete,
+		resetGameState,
+		solutionWord
+	} from '$lib/game.svelte';
 	import { delay } from '$lib/utils';
+	import {
+		goToNextLevel,
+		incrementGamePoints,
+		pointsToGive
+	} from '../player-progress/playerProgress.svelte';
 
 	var showModal = $state(false);
+	var pointsGained = $derived(hasPlayerWon() ? pointsToGive[currentGridRowNum.value] : 0);
 
 	$effect(function sideEffect() {
 		if (isLevelComplete.value) {
@@ -14,6 +26,10 @@
 	});
 
 	function setupNextLevel() {
+		incrementGamePoints(pointsGained);
+		if (hasPlayerWon()) {
+			goToNextLevel();
+		}
 		resetGameState();
 		showModal = false;
 	}
@@ -23,12 +39,19 @@
 	<h1 class="text-heading-sm sm:text-heading-base text-center font-semibold">
 		{hasPlayerWon() ? 'Level cleared 🎉' : 'Level failed 😿'}
 	</h1>
+
 	<p class="text-center sm:text-lg">
 		Answer :
 		<span class="font-bold">
 			{solutionWord.value}
 		</span>
 	</p>
+
+	<p class="text-center sm:text-lg">
+		Points :
+		<span class="font-bold">+{pointsGained}</span>
+	</p>
+
 	<div class="flex items-center justify-center">
 		<button
 			id="next-level"
