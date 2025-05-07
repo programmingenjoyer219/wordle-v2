@@ -14,7 +14,22 @@
 
 	onMount(function updateKeyboardLetterStatus() {
 		if (letterName in keyboardLetterStatus.value) {
-			keyboardLetterStatus.value[letterName] = letterStatus;
+			if (keyboardLetterStatus.value[letterName] == 'correct') return;
+
+			if (
+				keyboardLetterStatus.value[letterName] == 'present' &&
+				['present', 'correct'].includes(letterStatus)
+			) {
+				keyboardLetterStatus.value[letterName] = letterStatus;
+				return;
+			}
+
+			if (keyboardLetterStatus.value[letterName] == 'absent') return;
+
+			if (keyboardLetterStatus.value[letterName] == 'none') {
+				keyboardLetterStatus.value[letterName] = letterStatus;
+				return;
+			}
 		}
 	});
 </script>
