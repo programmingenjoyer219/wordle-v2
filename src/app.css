@@ -23,7 +23,7 @@
 /* typography */
 @theme {
 	--font-*: initial;
-	--font-roboto-mono: 'Roboto Mono', monospaced;
+	--font-roboto-mono: 'Roboto Mono', monospace;
 	--text-*: initial;
 	--text-sm: 0.875rem; /*14px*/
 	--text-sm--line-height: calc(1.4 * var(--text-sm));
@@ -115,8 +115,8 @@
 }
 
 @font-face {
-	font-family: 'Roboto Mono';
-	src: url('/fonts/RobotoMonoVariable.ttf') format('ttf');
+	font-family: 'Roboto Mono', monospace;
+	src: url('../static/fonts/RobotoMonoVariable.ttf') format('ttf');
 	font-weight: 100 700;
 	font-style: normal;
 }
@@ -138,7 +138,7 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 body {
-	@apply bg-gray-50 text-gray-800/85 transition-colors duration-200 dark:bg-gray-950/90 dark:text-gray-200;
+	@apply font-roboto-mono bg-gray-50 text-gray-800/85 transition-colors duration-200 dark:bg-gray-950/90 dark:text-gray-200;
 }
 
 @media (width <= 40rem) {
