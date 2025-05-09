@@ -58,9 +58,7 @@ class Game {
 	levelCompleted: boolean = $state(false);
 	// --------
 	levelPassed: boolean = $derived(this.attempts.includes(this.answer));
-	pointsGained: number = $derived(
-		this.levelCompleted ? Game.ATTEMPT_POINT_MAP[this.attemptNum] : 0
-	);
+	pointsGained: number = $derived(this.levelPassed ? Game.ATTEMPT_POINT_MAP[this.attemptNum] : 0);
 	// --------
 	constructor(
 		public playerStats: PlayerStats,
