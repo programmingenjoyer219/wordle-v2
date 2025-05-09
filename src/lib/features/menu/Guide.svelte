@@ -1,6 +1,6 @@
 <script lang="ts">
-	import GridCell from '$lib/components/GridCell.svelte';
 	import Modal from './Modal.svelte';
+	import WordGridCell from '../word-grid/WordGridCell.svelte';
 	import type { LetterStatus } from '$lib/types';
 
 	var showModal = $state(false);
@@ -10,29 +10,29 @@
 	}
 
 	type Example = {
-		exampleWord: string;
-		focusLetter: string;
-		focusLetterStatus: LetterStatus;
+		word: string;
+		letter: string;
+		letterStatus: LetterStatus;
 		description: string;
 	};
 
 	const EXAMPLES: Example[] = [
 		{
-			exampleWord: 'WORDY',
-			focusLetter: 'W',
-			focusLetterStatus: 'correct',
+			word: 'WORDY',
+			letter: 'W',
+			letterStatus: 'correct',
 			description: 'is in the word and in the correct spot.'
 		},
 		{
-			exampleWord: 'LIGHT',
-			focusLetter: 'I',
-			focusLetterStatus: 'present',
+			word: 'LIGHT',
+			letter: 'I',
+			letterStatus: 'present',
 			description: 'is in the word but in the wrong spot.'
 		},
 		{
-			exampleWord: 'ROGUE',
-			focusLetter: 'U',
-			focusLetterStatus: 'absent',
+			word: 'ROGUE',
+			letter: 'U',
+			letterStatus: 'absent',
 			description: 'is not in the word in any spot.'
 		}
 	];
@@ -68,17 +68,18 @@
 	</div>
 </Modal>
 
-{#snippet Example({ exampleWord, focusLetter, focusLetterStatus, description }: Example)}
+{#snippet Example({ word, letter, letterStatus, description }: Example)}
 	<div>
 		<div class="flex items-center gap-1">
-			{#each exampleWord.split('') as letter, i (i)}
-				<GridCell
-					cellSize="sm"
-					letterStatus={focusLetter == letter ? focusLetterStatus : 'none'}>{letter}</GridCell>
+			{#each word.split('') as letter, i (i)}
+				<WordGridCell
+					size="sm"
+					status={letter == letter ? letterStatus : 'none'}
+					name={letter} />
 			{/each}
 		</div>
 		<p class="text-sm sm:text-base">
-			<span class="font-semibold">{focusLetter}</span>
+			<span class="font-semibold">{letter}</span>
 			{description}
 		</p>
 	</div>
