@@ -33,8 +33,34 @@ const KEY_STATUS: KbdKeyStatus = {
 	M: 'none'
 };
 
-class Kbd {
+export class Kbd {
 	kbdKeyStatus: KbdKeyStatus = $state({ ...KEY_STATUS });
+
+	syncKeyStatus(status: LetterStatus, name: string) {
+		if (this.kbdKeyStatus[name] == 'correct') return;
+
+		if (this.kbdKeyStatus[name] == 'present' && ['present', 'correct'].includes(status)) {
+			this.kbdKeyStatus[name] = status;
+		}
+
+		if (this.kbdKeyStatus[name] == 'absent') return;
+
+		if (this.kbdKeyStatus[name] == 'none') {
+			this.kbdKeyStatus[name] = status;
+		}
+	}
+
+	reset() {
+		this.kbdKeyStatus = { ...KEY_STATUS };
+	}
+
+	snapshot(): KbdKeyStatus {
+		return $state.snapshot(this.kbdKeyStatus);
+	}
+
+	init(kbdKeyStatus: KbdKeyStatus) {
+		this.kbdKeyStatus = kbdKeyStatus;
+	}
 }
 
 export const kbd = new Kbd();

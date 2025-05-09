@@ -26,7 +26,8 @@
 		levelCompleted={game.levelCompleted}
 		levelPassed={game.levelPassed}
 		answer={game.answer}
-		pointsGained={game.pointsGained} />
+		pointsGained={game.pointsGained}
+		nextLevel={game.nextLevel.bind(game)} />
 	<main class="mb-2 flex flex-col justify-evenly">
 		{@render children()}
 	</main>

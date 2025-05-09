@@ -1,7 +1,7 @@
+import { generateRandomIdx } from './utils';
 // https://github.com/Kayden1412/Sverdle/blob/main/src/routes/sverdle/words.server.js
-
 /** The list of possible words */
-export const words = [
+const WORDS = [
 	'aback',
 	'abase',
 	'abate',
@@ -2320,8 +2320,8 @@ export const words = [
 ];
 
 /** The list of valid guesses, of which the list of possible words is a subset */
-export const allowedWords = new Set([
-	...words,
+const ALLOWED_WORDS = new Set([
+	...WORDS,
 	'aahed',
 	'aalii',
 	'aargh',
@@ -12982,10 +12982,9 @@ export const allowedWords = new Set([
 ]);
 
 export function isWordValid(value: string): boolean {
-	return allowedWords.has(value.toLowerCase());
+	return ALLOWED_WORDS.has(value.toLowerCase());
 }
 
 export function getRandomWord(): string {
-	var randomIdx = Math.floor(Math.random() * words.length);
-	return words[randomIdx];
+	return WORDS[generateRandomIdx(WORDS.length)];
 }

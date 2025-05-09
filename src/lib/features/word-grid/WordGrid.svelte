@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { LetterStatus } from '$lib/types';
 	import WordGridCell from './WordGridCell.svelte';
 
 	interface Props {
@@ -6,9 +7,10 @@
 		levelCompleted: boolean;
 		answer: string;
 		attemptNum: number;
+		syncKeyStatus: (status: LetterStatus, name: string) => void;
 	}
 
-	var { attempts, levelCompleted, answer, attemptNum }: Props = $props();
+	var { attempts, levelCompleted, answer, attemptNum, syncKeyStatus }: Props = $props();
 	var formattedAttempts = $derived(attempts.map(addSpaces));
 
 	const COLUMN_WIDTH: 'sm' | 'md' | 'lg' = 'md';
@@ -67,14 +69,16 @@
 					<WordGridCell
 						status={letterStatus}
 						size={COLUMN_WIDTH}
-						name={char} />
+						name={char}
+						{syncKeyStatus} />
 				{/each}
 			{:else}
 				{#each word.split('') as char}
 					<WordGridCell
 						status="none"
 						size={COLUMN_WIDTH}
-						name={char} />
+						name={char}
+						{syncKeyStatus} />
 				{/each}
 			{/if}
 		{/each}

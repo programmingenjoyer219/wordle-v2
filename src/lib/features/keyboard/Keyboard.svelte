@@ -6,6 +6,7 @@
 
 	interface Props {
 		levelCompleted: boolean;
+		levelPassed: boolean;
 		guess: string;
 		attempts: string[];
 		attemptNum: number;
@@ -14,7 +15,8 @@
 	}
 
 	var {
-		levelCompleted,
+		levelCompleted = $bindable(),
+		levelPassed,
 		guess = $bindable(),
 		attempts = $bindable(),
 		attemptNum = $bindable(),
@@ -87,11 +89,14 @@
 		if (levelCompleted) return;
 
 		var invalidGuess = !isWordValid(guess);
+		var attemptsRemain = attempts.includes('');
 
 		if (guess.length < 5) {
 			toast.error('Please provide a 5 letter word');
 		} else if (invalidGuess) {
 			toast.error(`${guess} is not a valid word`);
+		} else if (levelPassed || !attemptsRemain) {
+			levelCompleted = true;
 		} else {
 			attemptNum += 1;
 			guess = '';

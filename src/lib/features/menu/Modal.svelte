@@ -1,8 +1,21 @@
 <script lang="ts">
 	import { tabTrapping } from '$lib/tabTrapping.svelte';
+	import type { Snippet } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 
-	var { children, show = $bindable(false), canBeClosed = $bindable(true) } = $props();
+	interface Props {
+		children: Snippet;
+		show: boolean;
+		canBeClosed?: boolean;
+		delayInOpening?: number;
+	}
+
+	var {
+		children,
+		show = $bindable(false),
+		canBeClosed = $bindable(true),
+		delayInOpening = 0
+	}: Props = $props();
 
 	function close() {
 		if (canBeClosed) show = false;
@@ -27,11 +40,13 @@
 		onclick={function handleBackdropClick(evt) {
 			if (evt.target == evt.currentTarget) close();
 		}}
-		transition:fade={{ duration: 150 }}>
+		in:fade={{ duration: 150, delay: delayInOpening }}
+		out:fade={{ duration: 150 }}>
 		<section
 			id="modal"
 			class="flow w-[100vw] max-w-lg rounded bg-gray-50 px-8 py-4 dark:bg-gray-800"
-			transition:fly={{ y: -200, duration: 250 }}
+			in:fly={{ y: -200, duration: 250, delay: delayInOpening }}
+			out:fly={{ y: -200, duration: 250, delay: delayInOpening }}
 			use:tabTrapping>
 			{@render children()}
 			{#if canBeClosed}
