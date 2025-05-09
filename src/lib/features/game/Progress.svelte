@@ -1,7 +1,7 @@
 <script lang="ts">
 	interface Props {
-		level?: number;
-		points?: number;
+		level: number;
+		points: number;
 	}
 
 	var { level = 1, points = 0 }: Props = $props();
@@ -14,7 +14,9 @@
 
 {#snippet ProgressInfo({ iconClass, info }: { iconClass: string; info: string })}
 	<div class="flex items-center gap-1 px-3 py-1">
-		<i aria-hidden="true" class="{iconClass} ri-2x"></i>
+		<i
+			aria-hidden="true"
+			class="{iconClass} ri-2x"></i>
 		<p class="text-sm font-bold">{info}</p>
 	</div>
 {/snippet}
