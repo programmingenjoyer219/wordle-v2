@@ -7,7 +7,24 @@
 	import localforage from 'localforage';
 	import { onMount } from 'svelte';
 
+	const DATA_KEYS = new Set([
+		'wordle-player-stats',
+		'wordle-game',
+		'wordle-kbd',
+		'wordle-app-settings'
+	]);
+
+	function deleteUnwantedData(storedDataKeys) {
+		storedDataKeys.forEach(function deleteData(dataKey) {
+			if (DATA_KEYS.has(dataKey)) return;
+			localforage.removeItem(dataKey);
+			console.log('unwanted data deleted :', dataKey);
+		});
+	}
+
 	onMount(function loadSavedState() {
+		localforage.keys().then(deleteUnwantedData).catch(console.error.bind(console));
+
 		localforage
 			.getItem('wordle-player-stats')
 			.then(function initPlayerStats(value) {
